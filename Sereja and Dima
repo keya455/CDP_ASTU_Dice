@@ -1,0 +1,21 @@
+n = int(input())
+cards = list(map(int, input().split()))
+sereja_score = 0
+dima_score = 0
+left = 0
+right = n - 1
+turn = 0
+while left <= right:
+    if cards[left] >= cards[right]:
+        picked_card = cards[left]
+        left += 1
+    else:
+        picked_card = cards[right]
+        right -= 1
+    if turn == 0:
+        sereja_score += picked_card
+        turn = 1 
+    else:
+        dima_score += picked_card
+        turn = 0 
+print(sereja_score, dima_score)
